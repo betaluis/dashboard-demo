@@ -1,4 +1,5 @@
 "use client"
+import { Avatar } from '@mui/material'
 import { useSession, signIn, signOut } from 'next-auth/react'
 
 const Login = () => {
@@ -7,7 +8,9 @@ const Login = () => {
 
     if (session) {
         return <>
-            Signed in as {session?.user?.email} <br />
+            Welcome {session?.user?.name} <br />
+            <Avatar src={session?.user?.image} alt={session?.user?.name} /> 
+            <br />
             <button onClick={() => signOut()}>Sign out</button>
         </>
     }
