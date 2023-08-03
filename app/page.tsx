@@ -1,13 +1,8 @@
-import Header from "@/components/Header/Header";
-import Login from "@/components/Login/Login";
-import SideMenu from "@/components/SideMenu/SideMenu";
+import Main from "@/components/Main/Main";
 
 export default function Home() {
+
     return (
-        <main>
-            <Header />
-            <SideMenu />
-            <Login />
-        </main>
+        <Main />
     )
 }
