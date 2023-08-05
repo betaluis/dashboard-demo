@@ -1,5 +1,4 @@
 "use client"
-import Header from "@/components/Header/Header";
 import SideMenu from "@/components/SideMenu/SideMenu";
 import Login from "@/components/Login/Login"
 import Dashboard from "../../app/dashboard/page"
@@ -16,7 +15,6 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
-            <Header />
             {session && (
                 <>
                     <SideMenu />

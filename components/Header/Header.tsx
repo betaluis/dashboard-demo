@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 
@@ -22,7 +23,13 @@ const makeLowercase = (value: string): string => {
     return value.slice(0,1).toLowerCase() + value.slice(1);
 }
 
-function ResponsiveAppBar() {
+export type HeaderProps = {
+    ColorModeContext: React.Context<{toggleColorMode: () => void}>
+}
+
+function ResponsiveAppBar(props: HeaderProps) {
+
+    const { ColorModeContext } = props;
 
     const { data: session } = useSession()
 
@@ -142,7 +149,7 @@ function ResponsiveAppBar() {
                             </Button>
                         ))}
                     </Box>
-
+                    <ThemeToggleButton ColorModeContext={ColorModeContext} />
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
